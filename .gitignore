@@ -1,0 +1,23 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Allure
+allure-results/
+allure-report/
+
+# Environment / secrets
+*.env
+config.properties
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
