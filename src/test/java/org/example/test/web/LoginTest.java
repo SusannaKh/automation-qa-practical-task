@@ -1,7 +1,7 @@
 
-package org.example.tests;
+package org.example.test.web;
 
-import org.example.config.ConfigReader;
+import org.config.ConfigReader;
 import org.example.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;

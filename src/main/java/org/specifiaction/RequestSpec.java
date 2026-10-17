@@ -1,9 +1,9 @@
-package org.example.specifiaction;
+package org.specifiaction;
 
 
 import  io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
-import org.example.config.ConfigReader;
+import org.config.ConfigReader;
 
 public class RequestSpec {
     private static final RequestSpecification requestSpecification =

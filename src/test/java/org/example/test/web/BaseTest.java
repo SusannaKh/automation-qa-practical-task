@@ -1,5 +1,5 @@
 
-package org.example.tests;
+package org.example.test.web;
 
 import org.example.driver.DriverFactory;
 import org.openqa.selenium.WebDriver;

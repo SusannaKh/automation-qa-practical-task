@@ -1,8 +1,8 @@
-package org.example.api;
+package org.api.client;
 
 import io.restassured.response.Response;
-import org.example.config.ConfigReader;
-import org.example.specifiaction.RequestSpec;
+import org.config.ConfigReader;
+import org.specifiaction.RequestSpec;
 
 import static io.restassured.RestAssured.given;
 
