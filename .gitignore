@@ -21,3 +21,6 @@ allure-report/
 
 # Logs
 *.log
+
+# Allure generated files
+.allure/

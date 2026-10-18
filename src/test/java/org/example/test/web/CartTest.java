@@ -15,28 +15,36 @@ public class CartTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
 
-        loginPage.open(ConfigReader.get("ui.base.url"));
         loginPage.login(
                 ConfigReader.get("ui.user.name"),
                 ConfigReader.get("ui.user.password")
         );
 
         InventoryPage inventoryPage = new InventoryPage(driver);
+
+        String inventoryName = inventoryPage.getBackpackName();
+        String inventoryPrice = inventoryPage.getBackpackPrice();
+
         inventoryPage.addBackpackToCart();
         inventoryPage.openCart();
 
         CartPage cartPage = new CartPage(driver);
 
+        Assert.assertTrue(
+                driver.getCurrentUrl().contains("cart.html"),
+                "Cart page should be opened"
+        );
+
         Assert.assertEquals(
                 cartPage.getBackpackName(),
-                "Sauce Labs Backpack",
-                "Cart should contain Sauce Labs Backpack"
+                inventoryName,
+                "Product name should match the inventory page"
         );
 
         Assert.assertEquals(
                 cartPage.getBackpackPrice(),
-                "$29.99",
-                "Backpack price should be $29.99"
+                inventoryPrice,
+                "Product price should match the inventory page"
         );
     }
 }

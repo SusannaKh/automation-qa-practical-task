@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
 <suite name="Automation QA Test Suite">
-    <test name="All Tests">
-        <packages>
-            <package name="org.example.tests"/>
-        </packages>
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="API and UI Tests">
+        <classes>
+            <class name="org.example.test.api.ApiTests"/>
+            <class name="org.example.test.web.LoginTest"/>
+            <class name="org.example.test.web.CartTest"/>
+            <class name="org.example.test.web.CheckoutTest"/>
+        </classes>
     </test>
 </suite>
