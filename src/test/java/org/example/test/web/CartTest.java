@@ -2,9 +2,9 @@
 package org.example.test.web;
 
 import org.config.ConfigReader;
-import org.example.pages.CartPage;
-import org.example.pages.InventoryPage;
-import org.example.pages.LoginPage;
+import org.pages.CartPage;
+import org.pages.InventoryPage;
+import org.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
