@@ -1,24 +1,31 @@
 
 package org.example.test.web;
 
-import org.config.ConfigReader;
+import org.model.User;
+import org.utils.DatabaseUtils;
 import org.pages.CartPage;
 import org.pages.InventoryPage;
 import org.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.config.ConfigReader;
 
 public class CartTest extends BaseTest {
 
     @Test
     public void verifyBackpackInCartTest() {
 
+        // Get user credentials from PostgreSQL
+        User user = DatabaseUtils.getUserById(1);
+
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        // Login to SauceDemo
         LoginPage loginPage = new LoginPage(driver);
 
-        loginPage.login(
-                ConfigReader.get("ui.user.name"),
-                ConfigReader.get("ui.user.password")
-        );
+        loginPage.open(ConfigReader.get("ui.base.url"));
+        loginPage.login(username, password);
 
         InventoryPage inventoryPage = new InventoryPage(driver);
 
@@ -47,4 +54,20 @@ public class CartTest extends BaseTest {
                 "Product price should match the inventory page"
         );
     }
+
+    @Test
+    public void getUserByInvalidIdTest() {
+
+        RuntimeException exception = Assert.expectThrows(
+                RuntimeException.class,
+                () -> DatabaseUtils.getUserById(999)
+        );
+
+        Assert.assertEquals(
+                exception.getMessage(),
+                "User not found with id: 999",
+                "Expected an error when the user does not exist"
+        );
+    }
+
 }
