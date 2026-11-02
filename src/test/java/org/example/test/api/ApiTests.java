@@ -1,10 +1,10 @@
-package org.example.tests;
+package org.example.test.api;
 
 import io.restassured.response.Response;
-import org.example.api.AuthApi;
+import org.api.client.AuthApi;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.example.api.ProductApi;
+import org.api.client.ProductApi;
 import java.util.List;
 import java.util.Map;
 
